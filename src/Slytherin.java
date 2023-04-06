@@ -53,10 +53,10 @@ public class Slytherin extends Hogwarts {
             System.out.println(stud1.getName() + " " + stud1.getLastName() + " лучший Слизеринец, чем остальные "
                     + stud2.getName() + " " + stud2.getLastName() + " и " + stud3.getName() + " " + stud3.getLastName());
         } else if (sum2 > sum1 && sum2 > sum3) {
-            System.out.println(stud2.getName() + " " + stud2.getLastName() + " лучший Слизеринец чем остальные, чем чем остальные  "
+            System.out.println(stud2.getName() + " " + stud2.getLastName() + " лучший Слизеринец чем остальные, чем остальные  "
                     + stud1.getName() + " " + stud1.getLastName() + " и " + stud3.getName() + " " + stud3.getLastName());
         } else if (sum3 > sum1 && sum3 > sum2) {
-            System.out.println(stud3.getName() + " " + stud3.getLastName() + " лучший Слизеринец, чем чем остальные  "
+            System.out.println(stud3.getName() + " " + stud3.getLastName() + " лучший Слизеринец, чем остальные  "
                     + stud1.getName() + " " + stud1.getLastName() + " и " + stud2.getName() + " " + stud2.getLastName());
         } else {
             System.out.println("Слизеринцы равны");

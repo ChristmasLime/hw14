@@ -17,12 +17,13 @@ public class Hufflepuff extends Hogwarts {
     public int getHonesty() {
         return honesty;
     }
-    public void studentInfo() {
-        super.studentInfo();
-        System.out.println("Трудолюбие: " + diligence);
-        System.out.println("Верность: " + loyalty);
-        System.out.println("Честность: " + honesty);
+    public String toString() {
+        return super.toString() +
+                "\nТрудолюбие: " + diligence +
+                "\nВерность: " + loyalty +
+                "\nЧестность: " + honesty;
     }
+
     public static void compareStudents(Hufflepuff stud1, Hufflepuff stud2, Hufflepuff stud3) {
         int sum1 = stud1.getDiligence() + stud1.getLoyalty() + stud1.getHonesty();
         int sum2 = stud2.getDiligence() + stud2.getLoyalty() + stud2.getHonesty();

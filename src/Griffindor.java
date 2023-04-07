@@ -17,12 +17,13 @@ public class Griffindor extends Hogwarts {
     public int getBravery() {
         return bravery;
     }
-    public void studentInfo() {
-        super.studentInfo();
-        System.out.println("Благородство: " + nobility);
-        System.out.println("Честь: " + honor);
-        System.out.println("Храбрость: " + bravery);
+    public String toString() {
+        return super.toString() +
+                "\nБлагородство: " + nobility +
+                "\nЧесть: " + honor +
+                "\nХрабрость: " + bravery;
     }
+
     public static void compareStudents(Griffindor stud1, Griffindor stud2, Griffindor stud3) {
         int sum1 = stud1.getNobility() + stud1.getHonor() + stud1.getBravery();
         int sum2 = stud2.getNobility() + stud2.getHonor() + stud2.getBravery();

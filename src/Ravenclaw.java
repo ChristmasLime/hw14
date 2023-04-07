@@ -22,12 +22,12 @@ public class Ravenclaw extends Hogwarts {
     public int getCreativity() {
         return creativity;
     }
-    public void studentInfo() {
-        super.studentInfo();
-        System.out.println("Ум: " + intelligence);
-        System.out.println("Мудрость: " + wisdom);
-        System.out.println("Остроумие: " + wit);
-        System.out.println("Творчество: " + creativity);
+    public String toString() {
+        return super.toString() +
+                "\nУм: " + intelligence +
+                "\nМудрость: " + wisdom +
+                "\nОстроумие: " + wit +
+                "\nТворчество: " + creativity;
     }
     public static void compareStudents(Ravenclaw stud1, Ravenclaw stud2, Ravenclaw stud3) {
         int sum1 = stud1.getIntelligence() + stud1.getWisdom() + stud1.getWit()+stud1.getCreativity();

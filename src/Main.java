@@ -20,14 +20,15 @@ public class Main {
         Slytherin graham = new Slytherin("Грэхэм", "Монтегю", 80, 90, 85, 90, 85,75,44);
         Slytherin goyle = new Slytherin("Грегори", "Гойл", 90, 80, 85, 90, 95,64,77);
 
+
+       splitOffers();
+        System.out.println(hermione);
         splitOffers();
-        hermione.studentInfo();
+         System.out.println(draco);
         splitOffers();
-        draco.studentInfo();
+        System.out.println(zacharias);
         splitOffers();
-        zacharias.studentInfo();
-        splitOffers();
-        cho.studentInfo();
+        System.out.println(cho);
         splitOffers();
         Griffindor.compareStudents(harry, hermione, ron);
         splitOffers();
@@ -41,6 +42,7 @@ public class Main {
         splitOffers();
         draco.compareTransgressionDistance(zacharias);
         splitOffers();
+
     }
 }
 

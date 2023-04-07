@@ -34,16 +34,14 @@ public class Slytherin extends Hogwarts {
     public int getLustForPower() {
         return lustForPower;
     }
-
-    public void studentInfo() {
-        super.studentInfo();
-        System.out.println("Хитрость: " + cunning);
-        System.out.println("Решительность: " + determination);
-        System.out.println("Амбициозность: " + ambition);
-        System.out.println("Находчивость: " + resourcefulness);
-        System.out.println("Жажда власти: " + lustForPower);
+    public String toString() {
+        return super.toString() +
+                "\nХитрость: " + cunning +
+                "\nРешительность: " + determination +
+                "\nАмбициозность: " + ambition+
+                "\nНаходчивость: " + resourcefulness+
+                "\nЖажда власти: " + lustForPower;
     }
-
     public static void compareStudents(Slytherin stud1, Slytherin stud2, Slytherin stud3) {
         int sum1 = stud1.getCunning() + stud1.getDetermination() + stud1.getAmbition() + stud1.getResourcefulness() + stud1.getLustForPower();
         int sum2 = stud2.getCunning() + stud2.getDetermination() + stud2.getAmbition() + stud2.getResourcefulness() + stud2.getLustForPower();

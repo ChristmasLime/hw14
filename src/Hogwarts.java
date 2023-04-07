@@ -23,11 +23,10 @@ public class Hogwarts {
     public int getTransgressionDistance() {
         return transgressionDistance;
     }
-    public  void studentInfo() {
-        System.out.println("Имя студента: "+ name+" "+ lastName);
-        System.out.println("Сила магии: "+magicPower);
-        System.out.println("Дальность трансгрессии: "+transgressionDistance);
-
+    public String  toString() {
+        return "Имя студента: " + name + " " + lastName +
+                "\nСила магии: " + magicPower +
+                "\nДальность трансгрессии: " + transgressionDistance;
     }
     public void compareMagicPower(Hogwarts otherStudent) {
         if (this.magicPower > otherStudent.magicPower) {

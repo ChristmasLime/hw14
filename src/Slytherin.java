@@ -42,24 +42,39 @@ public class Slytherin extends Hogwarts {
                 "\nНаходчивость: " + resourcefulness+
                 "\nЖажда власти: " + lustForPower;
     }
-    public static void compareStudents(Slytherin stud1, Slytherin stud2, Slytherin stud3) {
-        int sum1 = stud1.getCunning() + stud1.getDetermination() + stud1.getAmbition() + stud1.getResourcefulness() + stud1.getLustForPower();
-        int sum2 = stud2.getCunning() + stud2.getDetermination() + stud2.getAmbition() + stud2.getResourcefulness() + stud2.getLustForPower();
-        int sum3 = stud3.getCunning() + stud3.getDetermination() + stud3.getAmbition() + stud3.getResourcefulness() + stud3.getLustForPower();
-
-        if (sum1 > sum2 && sum1 > sum3) {
-            System.out.println(stud1.getName() + " " + stud1.getLastName() + " лучший Слизеринец, чем остальные "
-                    + stud2.getName() + " " + stud2.getLastName() + " и " + stud3.getName() + " " + stud3.getLastName());
-        } else if (sum2 > sum1 && sum2 > sum3) {
-            System.out.println(stud2.getName() + " " + stud2.getLastName() + " лучший Слизеринец чем остальные, чем остальные  "
-                    + stud1.getName() + " " + stud1.getLastName() + " и " + stud3.getName() + " " + stud3.getLastName());
-        } else if (sum3 > sum1 && sum3 > sum2) {
-            System.out.println(stud3.getName() + " " + stud3.getLastName() + " лучший Слизеринец, чем остальные  "
-                    + stud1.getName() + " " + stud1.getLastName() + " и " + stud2.getName() + " " + stud2.getLastName());
-        } else {
-            System.out.println("Слизеринцы равны");
+    public static void compareStudents(Slytherin[] students) {
+        if (students == null ||  students.length == 0) {
+            System.out.println("Не передан ни один ученик");
+            return;
         }
+       Slytherin best = null;
+        int maxSum = 0;
+        for (Slytherin student : students) {
+            if (student == null) {
+                continue;
+            }
+            int sum = student.getCunning() + student.getDetermination() + student.getAmbition()+student.getResourcefulness()+student.getLustForPower();
 
+            if (best == null || sum > maxSum) {
+                best = student;
+                maxSum = sum;
+            }
+        }
+        if (best != null) {
+            String message = best.getName() + " " + best.getLastName() + " лучший Гриффиндорец, чем остальные ";
+
+            for (Slytherin student : students) {
+                if (student != null && student != best) {
+                    message += student.getName() + " " + student.getLastName() + " и ";
+                }
+            }
+            if (message.endsWith("и ")) {
+                message = message.substring(0, message.length() - 2);
+            }
+            System.out.println(message);
+        } else {
+            System.out.println("Не передан ни один ученик");
+        }
     }
 }
 

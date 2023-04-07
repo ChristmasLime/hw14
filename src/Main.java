@@ -21,28 +21,27 @@ public class Main {
         Slytherin goyle = new Slytherin("Грегори", "Гойл", 90, 80, 85, 90, 95,64,77);
 
 
-       splitOffers();
+ splitOffers();
         System.out.println(hermione);
-        splitOffers();
+ splitOffers();
          System.out.println(draco);
-        splitOffers();
+ splitOffers();
         System.out.println(zacharias);
-        splitOffers();
+splitOffers();
         System.out.println(cho);
+ splitOffers();
+        Griffindor[] students1 = {harry,null, null};
+        Griffindor.compareStudents(students1);
+splitOffers();
+        Slytherin[] stud = {draco, null, goyle};
+        Slytherin.compareStudents(stud);
+ splitOffers();
+        Ravenclaw[] students = {cho, marcus, padma};
+        Ravenclaw.compareStudents(students);
+splitOffers();
+        Hufflepuff[] zero = {null, null, null};
+        Hufflepuff.compareStudents(zero);
         splitOffers();
-        Griffindor.compareStudents(harry, hermione, ron);
-        splitOffers();
-        Slytherin.compareStudents(draco, graham, goyle);
-        splitOffers();
-        Hufflepuff.compareStudents(zacharias, cedric, justin);
-        splitOffers();
-        Ravenclaw.compareStudents(cho, padma, marcus);
-        splitOffers();
-        harry.compareMagicPower(hermione);
-        splitOffers();
-        draco.compareTransgressionDistance(zacharias);
-        splitOffers();
-
     }
 }
 

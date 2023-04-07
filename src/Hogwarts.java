@@ -28,6 +28,7 @@ public class Hogwarts {
                 "\nСила магии: " + magicPower +
                 "\nДальность трансгрессии: " + transgressionDistance;
     }
+
     public void compareMagicPower(Hogwarts otherStudent) {
         if (this.magicPower > otherStudent.magicPower) {
             System.out.println(this.name+" " + this.lastName + " обладает больше силой магии ,чем " + otherStudent.name + otherStudent.lastName);

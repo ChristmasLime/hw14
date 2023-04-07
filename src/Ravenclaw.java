@@ -29,22 +29,38 @@ public class Ravenclaw extends Hogwarts {
                 "\nОстроумие: " + wit +
                 "\nТворчество: " + creativity;
     }
-    public static void compareStudents(Ravenclaw stud1, Ravenclaw stud2, Ravenclaw stud3) {
-        int sum1 = stud1.getIntelligence() + stud1.getWisdom() + stud1.getWit()+stud1.getCreativity();
-        int sum2 = stud2.getIntelligence() + stud2.getWisdom() + stud2.getWit()+stud2.getCreativity();
-        int sum3 = stud3.getIntelligence() + stud3.getWisdom() + stud3.getWit()+stud3.getCreativity();
+    public static void compareStudents(Ravenclaw [] students) {
+        if (students == null ||  students.length == 0) {
+            System.out.println("Не передан ни один ученик");
+            return;
+        }
+        Ravenclaw best = null;
+        int maxSum = 0;
+        for (Ravenclaw student : students) {
+            if (student == null) {
+                continue;
+            }
+            int sum = student.getIntelligence() + student.getWisdom() + student.getWit()+student.getCreativity();
 
-        if (sum1 > sum2 && sum1 > sum3) {
-            System.out.println(stud1.getName() + " " + stud1.getLastName() + " лучший Пуффендуец, чем остальные "
-                    + stud2.getName() + " " + stud2.getLastName() + " и " + stud3.getName() + " " + stud3.getLastName());
-        } else if (sum2 > sum1 && sum2 > sum3) {
-            System.out.println(stud2.getName() + " " + stud2.getLastName() + " лучший Пуффендуец, чем остальные "
-                    + stud1.getName() + " " + stud1.getLastName() + " и " + stud3.getName() + " " + stud3.getLastName());
-        } else if (sum3 > sum1 && sum3 > sum2) {
-            System.out.println(stud3.getName() + " " + stud3.getLastName() + " лучший Пуффендуец, чем остальные  "
-                    + stud1.getName() + " " + stud1.getLastName() + " и " + stud2.getName() + " " + stud2.getLastName());
+            if (best == null || sum > maxSum) {
+                best = student;
+                maxSum = sum;
+            }
+        }
+        if (best != null) {
+            String message = best.getName() + " " + best.getLastName() + " лучший Гриффиндорец, чем остальные ";
+
+            for (Ravenclaw student : students) {
+                if (student != null && student != best) {
+                    message += student.getName() + " " + student.getLastName() + " и ";
+                }
+            }
+            if (message.endsWith("и ")) {
+                message = message.substring(0, message.length() - 2);
+            }
+            System.out.println(message);
         } else {
-            System.out.println("Пуффендуйцы равны");
+            System.out.println("Не передан ни один ученик");
         }
     }
 }

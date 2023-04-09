@@ -28,23 +28,21 @@ public class Hogwarts {
                 "\nСила магии: " + magicPower +
                 "\nДальность трансгрессии: " + transgressionDistance;
     }
-
-    public void compareMagicPower(Hogwarts otherStudent) {
-        if (this.magicPower > otherStudent.magicPower) {
-            System.out.println(this.name+" " + this.lastName + " обладает больше силой магии ,чем " + otherStudent.name + otherStudent.lastName);
-        } else if(this.magicPower < otherStudent.magicPower){
-            System.out.println( otherStudent.name +" "+ otherStudent.lastName + " обладает больше силой магии ,чем " + this.name + this.lastName);
-        }else{
-            System.out.println(this.name+this.lastName +" "+otherStudent.name+otherStudent.lastName+ " обладают одинаковой силой магии");
-        }
+    public int getMagicForce() {
+        return getMagicPower() + getTransgressionDistance();
     }
-    public void compareTransgressionDistance(Hogwarts otherStudent) {
-        if (this.transgressionDistance > otherStudent.transgressionDistance) {
-            System.out.println(this.name+" " + this.lastName + " может трансгредировать на большее расстояние, чем " + otherStudent.name + otherStudent.lastName);
-        } else if (this.transgressionDistance < otherStudent.transgressionDistance) {
-            System.out.println(otherStudent.name+" " + otherStudent.lastName + " может трансгредировать на большее расстояние, чем " + this.name + this.lastName);
+    public void compareMagicForce(Hogwarts otherStudent) {
+        if (otherStudent == null) {
+            System.out.println("Ошибка! Невозможно сравнить силу магии - передан пустой объект.");
         } else {
-            System.out.println(this.name+" " + this.lastName + " и " + otherStudent.name +" "+ otherStudent.lastName + " могут трансгредировать на одинаковое расстояние.");
+            if (getMagicForce() > otherStudent.getMagicForce()) {
+                System.out.println(getLastName()+" " + getLastName() + " обладает больше силой магии ,чем " + otherStudent.getName()+ otherStudent.getLastName());
+            } else if(getMagicForce() < otherStudent.getMagicForce()){
+                System.out.println( otherStudent.getName() +" "+ otherStudent.getLastName() + " обладает больше силой магии ,чем " + getName()+" " + getLastName());
+            } else {
+                System.out.println(getName()+getLastName() +" "+otherStudent.getName()+otherStudent.getLastName()+ " обладают одинаковой силой магии");
+            }
         }
     }
+
 }

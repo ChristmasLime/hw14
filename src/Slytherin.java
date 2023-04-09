@@ -34,47 +34,31 @@ public class Slytherin extends Hogwarts {
     public int getLustForPower() {
         return lustForPower;
     }
+
     public String toString() {
         return super.toString() +
                 "\nХитрость: " + cunning +
                 "\nРешительность: " + determination +
-                "\nАмбициозность: " + ambition+
-                "\nНаходчивость: " + resourcefulness+
+                "\nАмбициозность: " + ambition +
+                "\nНаходчивость: " + resourcefulness +
                 "\nЖажда власти: " + lustForPower;
     }
-    public static void compareStudents(Slytherin[] students) {
-        if (students == null ||  students.length == 0) {
-            System.out.println("Не передан ни один ученик");
-            return;
-        }
-       Slytherin best = null;
-        int maxSum = 0;
-        for (Slytherin student : students) {
-            if (student == null) {
-                continue;
-            }
-            int sum = student.getCunning() + student.getDetermination() + student.getAmbition()+student.getResourcefulness()+student.getLustForPower();
 
-            if (best == null || sum > maxSum) {
-                best = student;
-                maxSum = sum;
-            }
-        }
-        if (best != null) {
-            String message = best.getName() + " " + best.getLastName() + " лучший Гриффиндорец, чем остальные ";
+    public int getMagicForceSlytherin() {
+        return super.getMagicForce() + getCunning() + getDetermination() + getAmbition() + getResourcefulness() + getLustForPower();
+    }
 
-            for (Slytherin student : students) {
-                if (student != null && student != best) {
-                    message += student.getName() + " " + student.getLastName() + " и ";
-                }
-            }
-            if (message.endsWith("и ")) {
-                message = message.substring(0, message.length() - 2);
-            }
-            System.out.println(message);
+    public void compareMagicForceSlytherin(Slytherin otherStudent) {
+        if (otherStudent == null) {
+            System.out.println("Ошибка! Невозможно сравнить силу магии - передан пустой объект.");
         } else {
-            System.out.println("Не передан ни один ученик");
+            if (getMagicForceSlytherin() > otherStudent.getMagicForceSlytherin()) {
+                System.out.println(getName() + " " + getLastName() + " обладает больше силой магии ,чем " + otherStudent.getName() + " " + otherStudent.getLastName());
+            } else if (getMagicForceSlytherin() < otherStudent.getMagicForceSlytherin()) {
+                System.out.println(otherStudent.getName() + " " + otherStudent.getLastName() + " обладает больше силой магии ,чем " + getName() + " " + getLastName());
+            } else {
+                System.out.println(getName() + " " + getLastName() + " " + otherStudent.getName() + " " + otherStudent.getLastName() + " обладают одинаковой силой магии");
+            }
         }
     }
 }
-

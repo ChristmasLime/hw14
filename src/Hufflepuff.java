@@ -2,59 +2,48 @@ public class Hufflepuff extends Hogwarts {
     private int diligence;
     private int loyalty;
     private int honesty;
+
     public Hufflepuff(String name, String lastName, int magicPower, int transgressionDistance, int diligence, int loyalty, int honesty) {
         super(name, lastName, magicPower, transgressionDistance);
         this.diligence = diligence;
         this.loyalty = loyalty;
         this.honesty = honesty;
     }
+
     public int getDiligence() {
         return diligence;
     }
+
     public int getLoyalty() {
         return loyalty;
     }
+
     public int getHonesty() {
         return honesty;
     }
+
     public String toString() {
         return super.toString() +
                 "\nТрудолюбие: " + diligence +
                 "\nВерность: " + loyalty +
                 "\nЧестность: " + honesty;
     }
-    public static void compareStudents(Hufflepuff [] students) {
-        if (students == null ||  students.length == 0) {
-            System.out.println("Не передан ни один ученик");
-            return;
-        }
-        Hufflepuff best = null;
-        int maxSum = 0;
-        for (Hufflepuff student : students) {
-            if (student == null) {
-                continue;
-            }
-            int sum = student.getDiligence() + student.getLoyalty() + student.getHonesty();
 
-            if (best == null || sum > maxSum) {
-                best = student;
-                maxSum = sum;
-            }
-        }
-        if (best != null) {
-            String message = best.getName() + " " + best.getLastName() + " лучший Гриффиндорец, чем остальные ";
+    public int getMagicForceHufflepuff() {
+        return super.getMagicForce() + getDiligence() + getLoyalty() + getHonesty();
+    }
 
-            for (Hufflepuff student : students) {
-                if (student != null && student != best) {
-                    message += student.getName() + " " + student.getLastName() + " и ";
-                }
-            }
-            if (message.endsWith("и ")) {
-                message = message.substring(0, message.length() - 2);
-            }
-            System.out.println(message);
+    public void compareMagicForceHufflepuff(Hufflepuff otherStudent) {
+        if (otherStudent == null) {
+            System.out.println("Ошибка! Невозможно сравнить силу магии - передан пустой объект.");
         } else {
-            System.out.println("Не передан ни один ученик");
+            if (getMagicForceHufflepuff() > otherStudent.getMagicForceHufflepuff()) {
+                System.out.println(getName() + " " + getLastName() + " обладает больше силой магии ,чем " + otherStudent.getName() + " " + otherStudent.getLastName());
+            } else if (getMagicForceHufflepuff() < otherStudent.getMagicForceHufflepuff()) {
+                System.out.println(otherStudent.getName() + " " + otherStudent.getLastName() + " обладает больше силой магии ,чем " + getName() + " " + getLastName());
+            } else {
+                System.out.println(getName() + " " + getLastName() + " " + otherStudent.getName() + " " + otherStudent.getLastName() + " обладают одинаковой силой магии");
+            }
         }
     }
 }

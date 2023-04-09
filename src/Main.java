@@ -30,18 +30,18 @@ public class Main {
 splitOffers();
         System.out.println(cho);
  splitOffers();
-        Griffindor[] students1 = {harry,null, null};
-        Griffindor.compareStudents(students1);
-splitOffers();
-        Slytherin[] stud = {draco, null, goyle};
-        Slytherin.compareStudents(stud);
+ goyle.compareMagicForce(justin);
  splitOffers();
-        Ravenclaw[] students = {cho, marcus, padma};
-        Ravenclaw.compareStudents(students);
+        ron.compareMagicForce(null);
 splitOffers();
-        Hufflepuff[] zero = {null, null, null};
-        Hufflepuff.compareStudents(zero);
-        splitOffers();
+       hermione.compareMagicForceGriffindor(harry);
+splitOffers();
+       justin.compareMagicForceHufflepuff(cedric);
+splitOffers();
+        marcus.compareMagicForceRavenclaw(padma);
+splitOffers();
+        graham.compareMagicForceSlytherin(null);
+splitOffers();
     }
 }
 
